@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Access Immersive XR</title>
+</head>
+<body>
+  <h1>Access Immersive XR</h1>
+  <p>Accessible immersive VR experiences.</p>
+</body>
+</html>
