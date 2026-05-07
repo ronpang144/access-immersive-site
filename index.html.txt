@@ -1,10 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Access Immersive XR</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <h1>Access Immersive XR</h1>
-  <p>Accessible immersive VR experiences.</p>
+  <header class="hero">
+    <h1>Access Immersive XR</h1>
+    <p>Accessible immersive VR experiences.</p>
+    <a class="btn" href="#about">Explore</a>
+  </header>
+
+  <section id="about" class="section">
+    <h2>About</h2>
+    <p>
+      We design immersive XR experiences focused on accessibility, education,
+      and interactive learning.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>Projects</h2>
+    <ul>
+      <li>VR Education Workshop System</li>
+      <li>Accessible XR Interaction Prototype</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>© 2026 Access Immersive XR</p>
+  </footer>
 </body>
 </html>
