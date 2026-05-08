@@ -1,5 +1,5 @@
 /* =========================
-   FONT SETUP
+   FONTS
 ========================= */
 
 @font-face {
@@ -22,6 +22,13 @@
   --muted: #555555;
   --accent: #ffc821;
   --border: #eaeaea;
+
+  /* spacing system */
+  --s1: 8px;
+  --s2: 16px;
+  --s3: 24px;
+  --s4: 40px;
+  --s5: 64px;
 }
 
 /* =========================
@@ -44,39 +51,50 @@ h1, h2, h3 {
   margin: 0;
 }
 
-h1 { font-size: 48px; line-height: 1.1; }
-h2 { font-size: 28px; }
+h1 {
+  font-size: 48px;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: 28px;
+}
 
 p {
   font-size: 16px;
   line-height: 1.6;
   color: var(--muted);
+  margin-top: var(--s2);
 }
 
 /* =========================
-   NAV
+   NAVBAR (WIDER + AIRY)
 ========================= */
 
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 24px;
+
+  padding: 28px 48px; /* wider */
   border-bottom: 1px solid var(--border);
 }
 
-/* LOGO */
+/* LOGO FIX (1024px asset scaling issue) */
 .logo img {
-  height: 32px;
+  height: 42px;     /* increased from 32 */
   width: auto;
+  object-fit: contain;
   display: block;
 }
 
 /* LINKS */
 .links a {
-  margin-left: 18px;
+  margin-left: 28px; /* more breathing room */
   text-decoration: none;
   color: var(--text);
+  font-size: 14px;
+  letter-spacing: 0.2px;
   transition: 0.2s;
 }
 
@@ -93,9 +111,13 @@ p {
 ========================= */
 
 .hero {
-  padding: 110px 24px;
+  padding: 120px 48px;
   max-width: 1040px;
   margin: 0 auto;
+}
+
+.hero p {
+  margin-top: var(--s3);
 }
 
 /* =========================
@@ -109,6 +131,7 @@ p {
   text-decoration: none;
   color: var(--text);
   transition: 0.25s;
+  margin-right: var(--s2);
 }
 
 .btn:hover {
@@ -124,31 +147,35 @@ p {
    WORK GRID
 ========================= */
 
+.section {
+  padding: 100px 48px;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.section h1 {
+  margin-bottom: var(--s5); /* FIX: title spacing */
+}
+
 .work-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 16px;
+  gap: var(--s3);
 }
 
 .work-btn {
-  padding: 18px;
+  padding: 22px;
   border: 1px solid var(--border);
   background: #fff;
   cursor: pointer;
   transition: 0.25s;
 }
 
+.work-btn h3 {
+  margin-bottom: var(--s1);
+}
+
 .work-btn:hover {
   border-color: var(--accent);
   transform: translateY(-4px);
-}
-
-/* =========================
-   SECTION
-========================= */
-
-.section {
-  padding: 80px 24px;
-  max-width: 1040px;
-  margin: 0 auto;
 }
