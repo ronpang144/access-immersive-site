@@ -23,12 +23,17 @@
   --accent: #ffc821;
   --border: #eaeaea;
 
-  /* spacing system */
-  --s1: 8px;
-  --s2: 16px;
-  --s3: 24px;
-  --s4: 40px;
-  --s5: 64px;
+  /* spacing */
+  --s1: 6px;
+  --s2: 12px;
+  --s3: 20px;
+  --s4: 36px;
+  --s5: 60px;
+
+  /* typography scale (≈ +15%) */
+  --font-base: 18px;
+  --font-sm: 15px;
+  --font-lg: 21px;
 }
 
 /* =========================
@@ -40,6 +45,8 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: "BodyFont", sans-serif;
+  font-size: var(--font-base);
+  line-height: 1.45; /* tighter line spacing */
 }
 
 /* =========================
@@ -49,53 +56,52 @@ body {
 h1, h2, h3 {
   font-family: "HeaderFont", sans-serif;
   margin: 0;
-}
-
-h1 {
-  font-size: 48px;
   line-height: 1.1;
 }
 
+h1 {
+  font-size: calc(var(--font-base) * 2.6);
+}
+
 h2 {
-  font-size: 28px;
+  font-size: calc(var(--font-base) * 1.6);
 }
 
 p {
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: var(--font-base);
+  line-height: 1.45; /* tighter spacing */
   color: var(--muted);
   margin-top: var(--s2);
 }
 
 /* =========================
-   NAVBAR (WIDER + AIRY)
+   NAVBAR
 ========================= */
 
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  padding: 28px 48px; /* wider */
+  padding: 26px 48px;
   border-bottom: 1px solid var(--border);
 }
 
-/* LOGO FIX (1024px asset scaling issue) */
+/* LOGO */
 .logo img {
-  height: 70px;
+  height: 44px;
   width: auto;
-  max-width: 520px;
+  max-width: 240px;
   object-fit: contain;
   display: block;
 }
 
-/* LINKS */
+/* NAV LINKS (15% larger + tighter spacing) */
 .links a {
-  margin-left: 28px; /* more breathing room */
+  margin-left: 22px;
   text-decoration: none;
   color: var(--text);
-  font-size: 14px;
-  letter-spacing: 0.2px;
+  font-size: var(--font-sm);
+  line-height: 1.2;
   transition: 0.2s;
 }
 
@@ -112,7 +118,7 @@ p {
 ========================= */
 
 .hero {
-  padding: 120px 48px;
+  padding: 110px 48px;
   max-width: 1040px;
   margin: 0 auto;
 }
@@ -131,6 +137,7 @@ p {
   border: 1px solid var(--text);
   text-decoration: none;
   color: var(--text);
+  font-size: var(--font-sm);
   transition: 0.25s;
   margin-right: var(--s2);
 }
@@ -145,18 +152,22 @@ p {
 }
 
 /* =========================
-   WORK GRID
+   SECTION
 ========================= */
 
 .section {
-  padding: 100px 48px;
+  padding: 90px 48px;
   max-width: 1040px;
   margin: 0 auto;
 }
 
 .section h1 {
-  margin-bottom: var(--s5); /* FIX: title spacing */
+  margin-bottom: var(--s5);
 }
+
+/* =========================
+   WORK GRID
+========================= */
 
 .work-grid {
   display: grid;
