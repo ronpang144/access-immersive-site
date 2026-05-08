@@ -82,9 +82,9 @@ p {
 
 /* LOGO FIX (1024px asset scaling issue) */
 .logo img {
-  height: 44px;
+  height: 70px;
   width: auto;
-  max-width: 220px;
+  max-width: 520px;
   object-fit: contain;
   display: block;
 }
