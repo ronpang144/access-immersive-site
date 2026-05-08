@@ -13,7 +13,7 @@
 }
 
 /* =========================
-   ROOT SYSTEM
+   ROOT
 ========================= */
 
 :root {
@@ -71,11 +71,14 @@ p {
   border-bottom: 1px solid var(--border);
 }
 
+/* LOGO (NOW PNG) */
 .logo img {
   height: 32px;
   width: auto;
+  display: block;
 }
 
+/* LINKS */
 .links a {
   margin-left: 18px;
   text-decoration: none;
@@ -147,7 +150,7 @@ p {
 }
 
 /* =========================
-   PAGE WRAPPER
+   SECTION
 ========================= */
 
 .section {
