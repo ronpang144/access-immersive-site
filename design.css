@@ -1,138 +1,38 @@
-:root {
-  --bg: #ffffff;
-  --text: #111111;
-  --muted: #555555;
-  --accent: #ffc821;
-  --border: #eaeaea;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Access XR</title>
+  <link rel="stylesheet" href="design.css"/>
+</head>
 
-  --radius: 10px;
-  --max-width: 1040px;
-}
+<body>
 
-/* BASE */
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Helvetica, Arial, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-}
+<nav class="nav">
+  <div class="logo">
+    <img src="Assets/logo.png" alt="logo">
+  </div>
 
-/* LAYOUT */
-.container {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 24px;
-}
+  <div class="links">
+    <a class="active" href="index.html">Home</a>
+    <a href="works.html">Works</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
 
-/* TYPOGRAPHY */
-h1 {
-  font-size: 48px;
-  line-height: 1.1;
-  margin: 0 0 16px;
-}
+<div class="hero">
+  <h1>Immersive XR Experiences</h1>
+  <p>
+    I design and build interactive VR/XR systems focused on education,
+    accessibility, and spatial interaction.
+  </p>
 
-h2 {
-  font-size: 28px;
-  margin-bottom: 16px;
-}
+  <div style="margin-top:20px;">
+    <a class="btn primary" href="works.html">View Works</a>
+    <a class="btn" href="contact.html">Contact</a>
+  </div>
+</div>
 
-p {
-  font-size: 16px;
-  line-height: 1.6;
-  color: var(--muted);
-}
-
-/* NAV */
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 24px;
-  border-bottom: 1px solid var(--border);
-}
-
-.logo {
-  font-weight: 600;
-}
-
-.links a {
-  margin-left: 18px;
-  text-decoration: none;
-  color: var(--text);
-  position: relative;
-  transition: 0.2s;
-}
-
-.links a:hover {
-  color: var(--accent);
-}
-
-.links a.active {
-  color: var(--accent);
-}
-
-/* BUTTONS */
-.btn {
-  display: inline-block;
-  padding: 10px 16px;
-  border: 1px solid var(--text);
-  border-radius: var(--radius);
-  text-decoration: none;
-  color: var(--text);
-  transition: 0.25s ease;
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-}
-
-.btn.primary {
-  background: var(--accent);
-  border: none;
-}
-
-/* HERO */
-.hero {
-  padding: 110px 24px;
-  max-width: var(--max-width);
-  margin: 0 auto;
-}
-
-/* SECTIONS */
-.section {
-  padding: 80px 24px;
-}
-
-/* WORK CARDS (button style) */
-.work-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 16px;
-}
-
-.work-btn {
-  padding: 18px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: #fff;
-  text-align: left;
-  cursor: pointer;
-  transition: 0.25s ease;
-}
-
-.work-btn:hover {
-  border-color: var(--accent);
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-}
-
-/* subtle animation */
-.fade-in {
-  animation: fade 0.6s ease-out;
-}
-
-@keyframes fade {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+</body>
+</html>
