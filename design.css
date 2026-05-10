@@ -191,3 +191,39 @@ p {
   border-color: var(--accent);
   transform: translateY(-4px);
 }
+
+/* =========================
+   HERO IMAGE
+========================= */
+
+.hero-image {
+  margin-top: 42px;
+  margin-bottom: 42px;
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+/* =========================
+   HERO CONTENT
+========================= */
+
+.hero-content {
+  max-width: 760px;
+}
+
+.hero-content p {
+  margin-bottom: 20px;
+}
+
+/* =========================
+   HERO BUTTONS
+========================= */
+
+.hero-buttons {
+  margin-top: 36px;
+}
