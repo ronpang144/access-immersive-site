@@ -28,38 +28,30 @@
   <!-- GRID -->
   <div class="work-grid">
 
-    <div class="work-card" onclick="openWork('w1')">
-      <div class="work-hover">
-        <h3>Weather Risk Simulation</h3>
-        <p>Urban planning + climate communication VR</p>
-      </div>
+    <div class="work-card" onclick="openWork('w1', this)">
+      <h3>Weather Risk Simulation</h3>
+      <p>Urban planning + climate communication VR</p>
     </div>
 
-    <div class="work-card" onclick="openWork('w2')">
-      <div class="work-hover">
-        <h3>Solar Panels VR</h3>
-        <p>Educational XR for renewable energy learning</p>
-      </div>
+    <div class="work-card" onclick="openWork('w2', this)">
+      <h3>Solar Panels VR</h3>
+      <p>Educational XR for renewable energy learning</p>
     </div>
 
-    <div class="work-card" onclick="openWork('w3')">
-      <div class="work-hover">
-        <h3>Solar Data Simulation</h3>
-        <p>Macro-scale energy system visualisation</p>
-      </div>
+    <div class="work-card" onclick="openWork('w3', this)">
+      <h3>Solar Data Simulation</h3>
+      <p>Macro-scale energy system visualisation</p>
     </div>
 
-    <div class="work-card" onclick="openWork('w4')">
-      <div class="work-hover">
-        <h3>Eco Community</h3>
-        <p>Interactive educational storytelling XR</p>
-      </div>
+    <div class="work-card" onclick="openWork('w4', this)">
+      <h3>Eco Community</h3>
+      <p>Interactive educational storytelling XR</p>
     </div>
 
   </div>
 
-  <!-- DETAILS PANEL -->
-  <div id="work-detail" class="work-detail hidden"></div>
+  <!-- DETAIL PANEL -->
+  <div id="work-detail" class="work-detail"></div>
 
 </div>
 
@@ -70,44 +62,53 @@ const data = {
     <p><b>VR Urban Planning & Climate Communication</b></p>
     <p>Developed with LIRIC and University of the West of England.</p>
     <p>Simulated weather and climate risk across urban planning scenarios in Bristol, Taiwan, and São Paulo using immersive Igloo systems.</p>
-    <p>Focused on improving public understanding of environmental change and planning communication.</p>
   `,
 
   w2: `
     <h2>Solar Panels VR Education Experience</h2>
     <p><b>Educational XR Game for Renewable Energy Learning</b></p>
     <p>Created with Hong Kong Baptist University and HK Education Bureau workshops.</p>
-    <p>Students learned solar energy fundamentals by placing panels in real environments inside VR.</p>
-    <p>Built primarily for Meta Quest headsets.</p>
+    <p>Built for Meta Quest headsets.</p>
   `,
 
   w3: `
     <h2>Solar Panel Data Simulation</h2>
     <p><b>Macro-Scale Renewable Energy Visualisation</b></p>
-    <p>Collaborated with Hong Kong Baptist University.</p>
-    <p>Simulated large-scale solar energy generation based on coverage density rather than individual placement.</p>
-    <p>Developed for Meta Quest and Igloo immersive systems.</p>
+    <p>Simulated large-scale solar energy systems based on coverage density.</p>
+    <p>Developed for Meta Quest and Igloo systems.</p>
   `,
 
   w4: `
     <h2>Eco Community</h2>
     <p><b>Interactive Educational Storytelling Experience</b></p>
-    <p>Developed for workshops in Korea, Hong Kong, and the UK.</p>
-    <p>Players experience life inside a sustainable community and make decisions affecting its future.</p>
-    <p>Focus on empathy, storytelling, and environmental awareness.</p>
+    <p>Workshops in Korea, Hong Kong, and the UK.</p>
+    <p>Focus on decision-making, sustainability, and narrative XR.</p>
   `
 };
 
-function openWork(id) {
+let activeCard = null;
+
+function openWork(id, el) {
   const panel = document.getElementById("work-detail");
 
-  panel.classList.remove("hidden");
-  panel.innerHTML = data[id];
+  // reset previous active
+  document.querySelectorAll(".work-card").forEach(c => {
+    c.classList.remove("active");
+  });
 
-  panel.scrollIntoView({ behavior: "smooth", block: "start" });
+  // set new active
+  el.classList.add("active");
+  activeCard = el;
+
+  // animate content swap
+  panel.classList.remove("show");
+
+  setTimeout(() => {
+    panel.innerHTML = data[id];
+    panel.classList.add("show");
+  }, 120);
 }
 </script>
 
 </body>
-</html>
 </html>
