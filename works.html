@@ -9,6 +9,7 @@
 
 <body>
 
+<!-- ================= NAV ================= -->
 <nav class="nav">
   <div class="logo">
     <img src="assets/logo.png" alt="logo">
@@ -21,28 +22,116 @@
   </div>
 </nav>
 
+<!-- ================= SECTION ================= -->
 <div class="section">
+
   <h1>Selected Works</h1>
 
+  <!-- ================= GRID ================= -->
   <div class="work-grid">
 
-    <div class="work-btn">
-      <h3>Box #341</h3>
-      <p>Mobile puzzle game with XR interaction design.</p>
+    <div class="work-card" onclick="openWork('w1', this)">
+      <h3>Weather Risk Simulation</h3>
+      <p>VR urban planning & climate communication</p>
     </div>
 
-    <div class="work-btn">
-      <h3>VR Education System</h3>
-      <p>Interactive learning environment for training.</p>
+    <div class="work-card" onclick="openWork('w2', this)">
+      <h3>Solar Panels VR</h3>
+      <p>Educational XR for renewable energy learning</p>
     </div>
 
-    <div class="work-btn">
-      <h3>Accessibility XR</h3>
-      <p>Research into inclusive spatial systems.</p>
+    <div class="work-card" onclick="openWork('w3', this)">
+      <h3>Solar Data Simulation</h3>
+      <p>Macro-scale energy system visualisation</p>
+    </div>
+
+    <div class="work-card" onclick="openWork('w4', this)">
+      <h3>Eco Community</h3>
+      <p>Interactive educational storytelling XR</p>
     </div>
 
   </div>
+
+  <!-- ================= DETAIL PANEL ================= -->
+  <div id="work-detail" class="work-detail"></div>
+
 </div>
+
+<!-- ================= SCRIPT ================= -->
+<script>
+
+const data = {
+  w1: `
+    <h2>Weather Risk Simulation</h2>
+    <p><b>VR Urban Planning & Climate Communication</b></p>
+
+    <p>Developed in collaboration with LIRIC and the University of the West of England, this immersive VR experience explored new ways of communicating urban planning and environmental risk to local communities.</p>
+
+    <p>Primarily designed for the Igloo immersive projection system, the project simulated weather and climate risk differences under multiple urban planning scenarios across locations in Bristol, Taiwan, and São Paulo.</p>
+
+    <p>The experience aimed to prototype more accessible and engaging approaches to public consultation, spatial communication, and environmental awareness.</p>
+  `,
+
+  w2: `
+    <h2>Solar Panels VR Education Experience</h2>
+    <p><b>Educational XR Game for Renewable Energy Learning</b></p>
+
+    <p>Created in collaboration with Hong Kong Baptist University for workshops supported by the Hong Kong Education Bureau.</p>
+
+    <p>This VR experience introduced students to solar energy fundamentals and sustainable infrastructure.</p>
+
+    <p>Players learned how solar panels function, where they can be installed, and how placement affects efficiency.</p>
+
+    <p>Built primarily for Meta Quest headsets for educational workshop use.</p>
+  `,
+
+  w3: `
+    <h2>Solar Panel Data Simulation</h2>
+    <p><b>Macro-Scale Renewable Energy Visualisation</b></p>
+
+    <p>Working with Hong Kong Baptist University, this project explored large-scale solar energy simulation systems.</p>
+
+    <p>Instead of individual placement, it focused on macro coverage modelling across urban environments in Bristol (Easton area).</p>
+
+    <p>Developed for Meta Quest and adapted for Igloo immersive systems, focusing on energy communication and planning insight.</p>
+  `,
+
+  w4: `
+    <h2>Eco Community</h2>
+    <p><b>Interactive Educational Storytelling Experience</b></p>
+
+    <p>Developed with Hong Kong Baptist University for workshops in Korea, Hong Kong, and the UK.</p>
+
+    <p>This experience places users inside a fictional eco-community where they make decisions affecting sustainability and development.</p>
+
+    <p>Focus on empathy, environmental systems thinking, and participatory storytelling.</p>
+  `
+};
+
+let activeCard = null;
+
+function openWork(id, el) {
+
+  const panel = document.getElementById("work-detail");
+
+  // reset previous selection
+  document.querySelectorAll(".work-card").forEach(c => {
+    c.classList.remove("active");
+  });
+
+  // highlight current
+  el.classList.add("active");
+
+  // animate content swap
+  panel.classList.remove("show");
+
+  setTimeout(() => {
+    panel.innerHTML = data[id];
+    panel.classList.add("show");
+  }, 120);
+}
+
+</script>
 
 </body>
 </html>
