@@ -3,86 +3,111 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Access XR</title>
+  <title>Works</title>
   <link rel="stylesheet" href="design.css"/>
 </head>
 
 <body>
 
-<!-- =========================
-     NAVBAR
-========================= -->
-
 <nav class="nav">
-
   <div class="logo">
-    <img src="assets/logo.png" alt="Access XR Logo">
+    <img src="assets/logo.png" alt="logo">
   </div>
 
   <div class="links">
-    <a class="active" href="index.html">Home</a>
-    <a href="works.html">Works</a>
+    <a href="index.html">Home</a>
+    <a class="active" href="works.html">Works</a>
     <a href="contact.html">Contact</a>
   </div>
-
 </nav>
 
-<!-- =========================
-     HERO SECTION
-========================= -->
+<div class="section">
 
-<div class="hero">
+  <h1>Selected Works</h1>
 
-  <h1>
-    Creating immersive experiences for everyone.
-  </h1>
+  <!-- GRID -->
+  <div class="work-grid">
 
-  <!-- HERO IMAGE -->
-  <div class="hero-image">
-    <img src="assets/hero.png" alt="XR Experience">
-  </div>
+    <div class="work-card" onclick="openWork('w1')">
+      <div class="work-hover">
+        <h3>Weather Risk Simulation</h3>
+        <p>Urban planning + climate communication VR</p>
+      </div>
+    </div>
 
-  <!-- CONTENT -->
-  <div class="hero-content">
+    <div class="work-card" onclick="openWork('w2')">
+      <div class="work-hover">
+        <h3>Solar Panels VR</h3>
+        <p>Educational XR for renewable energy learning</p>
+      </div>
+    </div>
 
-    <p>
-      Founded by experienced VR developer, we create immersive XR experiences for training,
-      education, simulation, and interactive storytelling working with universities.
-    </p>
+    <div class="work-card" onclick="openWork('w3')">
+      <div class="work-hover">
+        <h3>Solar Data Simulation</h3>
+        <p>Macro-scale energy system visualisation</p>
+      </div>
+    </div>
 
-    <p>
-      Our work focuses on bringing people into meaningful spaces, imagined worlds,
-      and accessible virtual environments for all ages and backgrounds.
-    </p>
-
-    <p>
-      We believe immersive technology should not be limited to large organisations with large budgets.
-      Our goal is to make high-quality XR experiences more approachable, flexible, and accessible to everyone.
-    </p>
-
-    <p>
-      Explore our work and start a conversation with us.
-    </p>
+    <div class="work-card" onclick="openWork('w4')">
+      <div class="work-hover">
+        <h3>Eco Community</h3>
+        <p>Interactive educational storytelling XR</p>
+      </div>
+    </div>
 
   </div>
 
-  <!-- BUTTONS -->
-  <div class="hero-buttons">
-
-    <a class="btn primary" href="works.html">
-      View Works
-    </a>
-
-    <a class="btn" href="contact.html">
-      Contact
-    </a>
-
-  </div>
+  <!-- DETAILS PANEL -->
+  <div id="work-detail" class="work-detail hidden"></div>
 
 </div>
 
-</body>
-</html>
+<script>
+const data = {
+  w1: `
+    <h2>Weather Risk Simulation</h2>
+    <p><b>VR Urban Planning & Climate Communication</b></p>
+    <p>Developed with LIRIC and University of the West of England.</p>
+    <p>Simulated weather and climate risk across urban planning scenarios in Bristol, Taiwan, and São Paulo using immersive Igloo systems.</p>
+    <p>Focused on improving public understanding of environmental change and planning communication.</p>
+  `,
+
+  w2: `
+    <h2>Solar Panels VR Education Experience</h2>
+    <p><b>Educational XR Game for Renewable Energy Learning</b></p>
+    <p>Created with Hong Kong Baptist University and HK Education Bureau workshops.</p>
+    <p>Students learned solar energy fundamentals by placing panels in real environments inside VR.</p>
+    <p>Built primarily for Meta Quest headsets.</p>
+  `,
+
+  w3: `
+    <h2>Solar Panel Data Simulation</h2>
+    <p><b>Macro-Scale Renewable Energy Visualisation</b></p>
+    <p>Collaborated with Hong Kong Baptist University.</p>
+    <p>Simulated large-scale solar energy generation based on coverage density rather than individual placement.</p>
+    <p>Developed for Meta Quest and Igloo immersive systems.</p>
+  `,
+
+  w4: `
+    <h2>Eco Community</h2>
+    <p><b>Interactive Educational Storytelling Experience</b></p>
+    <p>Developed for workshops in Korea, Hong Kong, and the UK.</p>
+    <p>Players experience life inside a sustainable community and make decisions affecting its future.</p>
+    <p>Focus on empathy, storytelling, and environmental awareness.</p>
+  `
+};
+
+function openWork(id) {
+  const panel = document.getElementById("work-detail");
+
+  panel.classList.remove("hidden");
+  panel.innerHTML = data[id];
+
+  panel.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+</script>
 
 </body>
+</html>
 </html>
