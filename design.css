@@ -23,14 +23,12 @@
   --accent: #ffc821;
   --border: #eaeaea;
 
-  /* spacing */
   --s1: 6px;
   --s2: 12px;
   --s3: 20px;
   --s4: 36px;
   --s5: 60px;
 
-  /* typography scale (≈ +15%) */
   --font-base: 18px;
   --font-sm: 15px;
   --font-lg: 21px;
@@ -46,7 +44,7 @@ body {
   color: var(--text);
   font-family: "BodyFont", sans-serif;
   font-size: var(--font-base);
-  line-height: 1.45; /* tighter line spacing */
+  line-height: 1.45;
 }
 
 /* =========================
@@ -69,7 +67,7 @@ h2 {
 
 p {
   font-size: var(--font-base);
-  line-height: 1.45; /* tighter spacing */
+  line-height: 1.45;
   color: var(--muted);
   margin-top: var(--s2);
 }
@@ -86,7 +84,6 @@ p {
   border-bottom: 1px solid var(--border);
 }
 
-/* LOGO */
 .logo img {
   height: 44px;
   width: auto;
@@ -95,13 +92,11 @@ p {
   display: block;
 }
 
-/* NAV LINKS (15% larger + tighter spacing) */
 .links a {
   margin-left: 22px;
   text-decoration: none;
   color: var(--text);
   font-size: var(--font-sm);
-  line-height: 1.2;
   transition: 0.2s;
 }
 
@@ -138,7 +133,7 @@ p {
   text-decoration: none;
   color: var(--text);
   font-size: var(--font-sm);
-  transition: 0.25s;
+  transition: 0.25s ease;
   margin-right: var(--s2);
 }
 
@@ -166,39 +161,11 @@ p {
 }
 
 /* =========================
-   WORK GRID
-========================= */
-
-.work-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: var(--s3);
-}
-
-.work-btn {
-  padding: 22px;
-  border: 1px solid var(--border);
-  background: #fff;
-  cursor: pointer;
-  transition: 0.25s;
-}
-
-.work-btn h3 {
-  margin-bottom: var(--s1);
-}
-
-.work-btn:hover {
-  border-color: var(--accent);
-  transform: translateY(-4px);
-}
-
-/* =========================
    HERO IMAGE
 ========================= */
 
 .hero-image {
-  margin-top: 42px;
-  margin-bottom: 42px;
+  margin: 42px 0;
 }
 
 .hero-image img {
@@ -226,9 +193,10 @@ p {
 
 .hero-buttons {
   margin-top: 36px;
+}
 
 /* =========================
-   WORK CARDS (BUTTON STYLE)
+   WORK GRID
 ========================= */
 
 .work-grid {
@@ -237,7 +205,10 @@ p {
   gap: 18px;
 }
 
-/* base card */
+/* =========================
+   WORK CARDS
+========================= */
+
 .work-card {
   padding: 18px;
   border: 1px solid var(--border);
@@ -245,17 +216,17 @@ p {
   cursor: pointer;
 
   transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+
   position: relative;
+  will-change: transform;
 }
 
-/* hover animation (smooth lift) */
 .work-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 10px 30px rgba(0,0,0,0.06);
   border-color: var(--accent);
 }
 
-/* text */
 .work-card h3 {
   margin: 0;
   font-size: 18px;
@@ -267,7 +238,7 @@ p {
   color: var(--muted);
 }
 
-/* ACTIVE STATE (yellow highlight) */
+/* ACTIVE STATE */
 .work-card.active {
   background: var(--accent);
   border-color: var(--accent);
@@ -278,34 +249,43 @@ p {
 }
 
 /* =========================
-   DETAIL PANEL (SMOOTH EXPAND)
+   DETAIL PANEL (ANIMATED)
 ========================= */
 
 .work-detail {
-  margin-top: 36px;
-
+  margin-top: 0;
   max-width: 760px;
+
   padding: 0 18px;
 
   max-height: 0;
   opacity: 0;
   overflow: hidden;
 
-  transition: max-height 0.5s ease, opacity 0.35s ease, padding 0.35s ease, margin 0.35s ease;
+  transform: translateY(-8px);
+
   border: 1px solid transparent;
+
+  transition:
+    max-height 0.5s ease,
+    opacity 0.35s ease,
+    transform 0.35s ease,
+    padding 0.35s ease,
+    margin 0.35s ease;
 }
 
-/* when shown */
 .work-detail.show {
-  max-height: 600px;
+  max-height: 700px;
   opacity: 1;
+  transform: translateY(0);
+
   padding: 24px;
-  margin-top: 36px;
+  margin-top: 28px;
+
   border: 1px solid var(--border);
   background: #fff;
 }
 
-/* text inside panel */
 .work-detail h2 {
   margin-bottom: 10px;
 }
