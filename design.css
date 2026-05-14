@@ -226,4 +226,58 @@ p {
 
 .hero-buttons {
   margin-top: 36px;
+
+   /* =========================
+   WORK CARDS (HOVER PREVIEW)
+========================= */
+
+.work-card {
+  position: relative;
+  height: 180px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  overflow: hidden;
+  transition: 0.25s;
+  display: flex;
+  align-items: flex-end;
+  padding: 16px;
+  background: #fff;
+}
+
+.work-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+
+/* hover preview */
+.work-hover h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.work-hover p {
+  margin-top: 6px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* =========================
+   DETAIL PANEL
+========================= */
+
+.work-detail {
+  margin-top: 40px;
+  padding: 28px;
+  border: 1px solid var(--border);
+  background: #fff;
+  max-width: 760px;
+}
+
+.work-detail h2 {
+  margin-bottom: 10px;
+}
+
+.hidden {
+  display: none;
+}
 }
