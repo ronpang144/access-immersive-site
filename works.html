@@ -9,7 +9,7 @@
 
 <body>
 
-<!-- ================= NAV ================= -->
+<!-- NAV -->
 <nav class="nav">
 
   <div class="logo">
@@ -24,37 +24,61 @@
 
 </nav>
 
-<!-- ================= MAIN ================= -->
+<!-- MAIN -->
 <div class="section">
 
   <h1>Selected Works</h1>
 
-  <!-- ================= WORK BUTTONS ================= -->
+  <!-- WORK GRID -->
   <div class="work-grid">
 
+    <!-- CARD 1 -->
     <div class="work-card active" onclick="openWork('w1', this)">
+
       <h3>Weather Risk Simulation</h3>
+
+      <img class="work-thumb" src="assets/button1.png" alt="Weather Risk Simulation">
+
       <p>VR urban planning & climate communication</p>
+
     </div>
 
+    <!-- CARD 2 -->
     <div class="work-card" onclick="openWork('w2', this)">
+
       <h3>Solar Panels VR Education</h3>
+
+      <img class="work-thumb" src="assets/button2.png" alt="Solar Panels VR">
+
       <p>Educational XR for renewable energy learning</p>
+
     </div>
 
+    <!-- CARD 3 -->
     <div class="work-card" onclick="openWork('w3', this)">
+
       <h3>Solar Panel Data Simulation</h3>
+
+      <img class="work-thumb" src="assets/button3.png" alt="Solar Data Simulation">
+
       <p>Macro-scale renewable energy visualisation</p>
+
     </div>
 
+    <!-- CARD 4 -->
     <div class="work-card" onclick="openWork('w4', this)">
+
       <h3>Eco Community</h3>
+
+      <img class="work-thumb" src="assets/button4.png" alt="Eco Community">
+
       <p>Interactive educational storytelling experience</p>
+
     </div>
 
   </div>
 
-  <!-- ================= POPUP DESCRIPTION PANEL ================= -->
+  <!-- DETAIL PANEL -->
   <div id="work-detail" class="work-detail show">
 
     <h2>Weather Risk Simulation</h2>
@@ -77,7 +101,6 @@
 
 </div>
 
-<!-- ================= SCRIPT ================= -->
 <script>
 
 const data = {
@@ -106,7 +129,7 @@ const data = {
     <p><b>Educational XR Game for Renewable Energy Learning</b></p>
 
     <p>
-      Created in collaboration with Hong Kong Baptist University for workshops supported by the Hong Kong Education Bureau, this VR educational experience introduced students to the fundamentals of solar energy and sustainable infrastructure.
+      Created in collaboration with Hong Kong Baptist University for workshops supported by the Hong Kong Education Bureau.
     </p>
 
     <p>
@@ -114,7 +137,7 @@ const data = {
     </p>
 
     <p>
-      The experience was primarily developed for Meta Quest headsets and designed for workshop environments aimed at children and teenagers.
+      Developed primarily for Meta Quest headsets for educational workshop environments.
     </p>
   `,
 
@@ -128,11 +151,11 @@ const data = {
     </p>
 
     <p>
-      Rather than individual placement, the experience focused on macro-level environmental simulation, allowing users to experiment with different levels of solar panel coverage and infrastructure density across the Easton area of Bristol.
+      Rather than individual placement, the experience focused on macro-level environmental simulation and sustainability planning.
     </p>
 
     <p>
-      Developed primarily for Meta Quest and later adapted for the Igloo immersive system, the project investigated how XR can support data communication, sustainability planning, and public understanding of renewable energy systems.
+      Developed for Meta Quest and later adapted for Igloo immersive systems.
     </p>
   `,
 
@@ -142,15 +165,15 @@ const data = {
     <p><b>Interactive Educational Storytelling Experience</b></p>
 
     <p>
-      Developed with Hong Kong Baptist University for workshops and exhibitions across Korea, Hong Kong, and the United Kingdom, this interactive storytelling experience explored sustainable living and community decision-making.
+      Developed with Hong Kong Baptist University for workshops and exhibitions across Korea, Hong Kong, and the United Kingdom.
     </p>
 
     <p>
-      Users experienced the perspectives, stories, and backgrounds of different residents within a fictional eco-community, making choices that influenced the development and sustainability of the environment.
+      Users experienced the perspectives and stories of residents within a fictional eco-community while making sustainability-focused decisions.
     </p>
 
     <p>
-      The project focused on empathy, participation, and educational engagement through immersive narrative design.
+      Focused on empathy, participation, and educational engagement through immersive narrative design.
     </p>
   `
 };
@@ -159,22 +182,18 @@ function openWork(id, el) {
 
   const panel = document.getElementById("work-detail");
 
-  // remove active state
   document.querySelectorAll(".work-card").forEach(card => {
     card.classList.remove("active");
   });
 
-  // add active state
   el.classList.add("active");
 
-  // animate out
   panel.classList.remove("show");
 
   setTimeout(() => {
 
     panel.innerHTML = data[id];
 
-    // animate in
     panel.classList.add("show");
 
   }, 150);
