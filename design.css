@@ -13,7 +13,7 @@
 }
 
 /* =========================
-   ROOT
+   ROOT SYSTEM
 ========================= */
 
 :root {
@@ -53,22 +53,26 @@ body {
 h1, h2, h3 {
   font-family: "HeaderFont", sans-serif;
   margin: 0;
-  line-height: 1.1;
+  line-height: 1.15;
 }
 
 h1 {
-  font-size: calc(var(--font-base) * 2.6);
+  font-size: calc(var(--font-base) * 2.4);
 }
 
 h2 {
   font-size: calc(var(--font-base) * 1.6);
 }
 
+h3 {
+  font-size: 18px;
+}
+
 p {
   font-size: var(--font-base);
   color: var(--muted);
   margin-top: var(--s2);
-  line-height: 1.45;
+  line-height: 1.5;
 }
 
 /* =========================
@@ -88,6 +92,7 @@ p {
   width: auto;
   max-width: 240px;
   object-fit: contain;
+  display: block;
 }
 
 .links a {
@@ -95,7 +100,7 @@ p {
   text-decoration: none;
   color: var(--text);
   font-size: var(--font-sm);
-  transition: 0.2s;
+  transition: 0.2s ease;
 }
 
 .links a:hover {
@@ -127,13 +132,13 @@ p {
 }
 
 /* =========================
-   WORK CARD
+   WORK CARD (BUTTON STYLE)
 ========================= */
 
 .work-card {
-  padding: 18px;
-  border: 1px solid var(--border);
   background: #fff;
+  border: 1px solid var(--border);
+  padding: 16px;
   cursor: pointer;
 
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
@@ -142,22 +147,10 @@ p {
 
 .work-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
   border-color: var(--accent);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
 }
 
-.work-card h3 {
-  font-size: 18px;
-  margin: 0;
-}
-
-.work-card p {
-  font-size: 14px;
-  color: var(--muted);
-  margin-top: 6px;
-}
-
-/* ACTIVE STATE */
 .work-card.active {
   background: var(--accent);
   border-color: var(--accent);
@@ -165,6 +158,23 @@ p {
 
 .work-card.active p {
   color: #111;
+}
+
+/* =========================
+   WORK IMAGE (3:2 LANDSCAPE)
+========================= */
+
+.work-thumb {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+
+  margin-top: 14px;
+  margin-bottom: 14px;
+
+  border-radius: 6px;
+
+  display: block;
 }
 
 /* =========================
@@ -178,8 +188,8 @@ p {
   padding: 0 18px;
 
   max-height: 0;
-  overflow: hidden;
   opacity: 0;
+  overflow: hidden;
   transform: translateY(-10px);
 
   border: 1px solid transparent;
