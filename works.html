@@ -61,69 +61,89 @@
 <script>
 
 const data = {
-  w1: `
-    <h2>Weather Risk Simulation</h2>
-    <p><b>VR Urban Planning & Climate Communication</b></p>
+  w1: {
+    title: "Weather Risk Simulation",
+    subtitle: "VR Urban Planning & Climate Communication",
+    body: `
+      <p>Developed in collaboration with LIRIC and the University of the West of England, this immersive VR experience explored new ways of communicating urban planning and environmental risk to local communities.</p>
 
-    <p>Developed in collaboration with LIRIC and the University of the West of England, this immersive VR experience explored new ways of communicating urban planning and environmental risk to local communities.</p>
+      <p>Primarily designed for the Igloo immersive projection system, the project simulated weather and climate risk differences under multiple urban planning scenarios across Bristol, Taiwan, and São Paulo.</p>
 
-    <p>Primarily designed for the Igloo immersive projection system, the project simulated weather and climate risk differences under multiple urban planning scenarios across Bristol, Taiwan, and São Paulo.</p>
+      <p>The experience aimed to prototype more accessible and engaging approaches to public consultation, spatial communication, and environmental awareness.</p>
+    `
+  },
 
-    <p>The experience aimed to prototype more accessible and engaging approaches to public consultation, spatial communication, and environmental awareness.</p>
-  `,
+  w2: {
+    title: "Solar Panels VR Education Experience",
+    subtitle: "Educational XR Game for Renewable Energy Learning",
+    body: `
+      <p>Created in collaboration with Hong Kong Baptist University and supported by the Hong Kong Education Bureau.</p>
 
-  w2: `
-    <h2>Solar Panels VR Education Experience</h2>
-    <p><b>Educational XR Game for Renewable Energy Learning</b></p>
+      <p>This VR experience introduced students to solar energy fundamentals and sustainable infrastructure.</p>
 
-    <p>Created in collaboration with Hong Kong Baptist University and supported by the Hong Kong Education Bureau.</p>
+      <p>Players explored real-world environments and learned how solar panels function, where they can be installed, and how placement affects efficiency.</p>
 
-    <p>This VR experience introduced students to solar energy fundamentals and sustainable infrastructure.</p>
+      <p>Built primarily for Meta Quest headsets for educational workshop environments.</p>
+    `
+  },
 
-    <p>Players explored real-world environments and learned how solar panels function, where they can be installed, and how placement affects efficiency.</p>
+  w3: {
+    title: "Solar Panel Data Simulation",
+    subtitle: "Macro-Scale Renewable Energy Visualisation",
+    body: `
+      <p>Working with Hong Kong Baptist University, this project explored large-scale solar energy simulation systems.</p>
 
-    <p>Built primarily for Meta Quest headsets for educational workshop environments.</p>
-  `,
+      <p>Instead of individual placement, it focused on macro coverage modelling across urban environments such as Bristol (Easton area).</p>
 
-  w3: `
-    <h2>Solar Panel Data Simulation</h2>
-    <p><b>Macro-Scale Renewable Energy Visualisation</b></p>
+      <p>Developed for Meta Quest and later adapted for Igloo immersive systems.</p>
+    `
+  },
 
-    <p>Working with Hong Kong Baptist University, this project explored large-scale solar energy simulation systems.</p>
+  w4: {
+    title: "Eco Community",
+    subtitle: "Interactive Educational Storytelling Experience",
+    body: `
+      <p>Developed with Hong Kong Baptist University for workshops across Korea, Hong Kong, and the UK.</p>
 
-    <p>Instead of individual placement, it focused on macro coverage modelling across urban environments such as Bristol (Easton area).</p>
+      <p>This experience places users inside a fictional eco-community where they make decisions affecting sustainability and development.</p>
 
-    <p>Developed for Meta Quest and later adapted for Igloo immersive systems.</p>
-  `,
-
-  w4: `
-    <h2>Eco Community</h2>
-    <p><b>Interactive Educational Storytelling Experience</b></p>
-
-    <p>Developed with Hong Kong Baptist University for workshops across Korea, Hong Kong, and the UK.</p>
-
-    <p>This experience places users inside a fictional eco-community where they make decisions affecting sustainability and development.</p>
-
-    <p>Focus on empathy, environmental systems thinking, and participatory storytelling.</p>
-  `
+      <p>Focus on empathy, environmental systems thinking, and participatory storytelling.</p>
+    `
+  }
 };
 
 function openWork(id, el) {
 
   const panel = document.getElementById("work-detail");
 
+  // remove active state
   document.querySelectorAll(".work-card").forEach(c => {
     c.classList.remove("active");
   });
 
   el.classList.add("active");
 
+  // close first for animation reset
   panel.classList.remove("show");
 
   setTimeout(() => {
-    panel.innerHTML = data[id];
+
+    const item = data[id];
+
+    panel.innerHTML = `
+      <h2>${item.title}</h2>
+      <p><b>${item.subtitle}</b></p>
+      ${item.body}
+    `;
+
     panel.classList.add("show");
-  }, 120);
+
+    panel.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+
+  }, 150);
 }
 
 </script>
