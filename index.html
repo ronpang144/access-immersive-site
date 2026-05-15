@@ -3,112 +3,63 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Works</title>
+  <title>Access XR</title>
   <link rel="stylesheet" href="design.css"/>
 </head>
 
 <body>
 
+<!-- NAV -->
 <nav class="nav">
+
   <div class="logo">
-    <img src="assets/logo.png" alt="logo">
+    <img src="assets/logo.png" alt="Access XR Logo">
   </div>
 
   <div class="links">
-    <a href="index.html">Home</a>
-    <a class="active" href="works.html">Works</a>
+    <a class="active" href="index.html">Home</a>
+    <a href="works.html">Works</a>
     <a href="contact.html">Contact</a>
   </div>
+
 </nav>
 
+<!-- HERO -->
 <div class="section">
 
-  <h1>Selected Works</h1>
+  <div class="hero-content">
 
-  <!-- GRID -->
-  <div class="work-grid">
+    <h1>Creating immersive experiences for everyone.</h1>
 
-    <div class="work-card" onclick="openWork('w1', this)">
-      <h3>Weather Risk Simulation</h3>
-      <p>Urban planning + climate communication VR</p>
+    <div class="hero-image">
+      <img src="assets/hero.png" alt="Immersive XR preview">
     </div>
 
-    <div class="work-card" onclick="openWork('w2', this)">
-      <h3>Solar Panels VR</h3>
-      <p>Educational XR for renewable energy learning</p>
-    </div>
+    <p>
+      Founded by an experienced VR developer, we create immersive XR experiences for training, education, simulation, and interactive storytelling working with universities and research groups.
+    </p>
 
-    <div class="work-card" onclick="openWork('w3', this)">
-      <h3>Solar Data Simulation</h3>
-      <p>Macro-scale energy system visualisation</p>
-    </div>
+    <p>
+      Our work focuses on bringing people into meaningful spaces, imagined worlds, and accessible virtual environments for all ages and backgrounds.
+    </p>
 
-    <div class="work-card" onclick="openWork('w4', this)">
-      <h3>Eco Community</h3>
-      <p>Interactive educational storytelling XR</p>
+    <p>
+      We believe immersive technology should not be limited to large organisations with large budgets. Our goal is to make high-quality XR experiences more approachable, flexible, and accessible to everyone.
+    </p>
+
+    <p>
+      Explore our work and start a conversation with us.
+    </p>
+
+    <!-- BUTTONS -->
+    <div class="hero-buttons">
+      <a class="btn primary" href="works.html">View Works</a>
+      <a class="btn" href="contact.html">Contact</a>
     </div>
 
   </div>
 
-  <!-- DETAIL PANEL -->
-  <div id="work-detail" class="work-detail"></div>
-
 </div>
-
-<script>
-const data = {
-  w1: `
-    <h2>Weather Risk Simulation</h2>
-    <p><b>VR Urban Planning & Climate Communication</b></p>
-    <p>Developed with LIRIC and University of the West of England.</p>
-    <p>Simulated weather and climate risk across urban planning scenarios in Bristol, Taiwan, and São Paulo using immersive Igloo systems.</p>
-  `,
-
-  w2: `
-    <h2>Solar Panels VR Education Experience</h2>
-    <p><b>Educational XR Game for Renewable Energy Learning</b></p>
-    <p>Created with Hong Kong Baptist University and HK Education Bureau workshops.</p>
-    <p>Built for Meta Quest headsets.</p>
-  `,
-
-  w3: `
-    <h2>Solar Panel Data Simulation</h2>
-    <p><b>Macro-Scale Renewable Energy Visualisation</b></p>
-    <p>Simulated large-scale solar energy systems based on coverage density.</p>
-    <p>Developed for Meta Quest and Igloo systems.</p>
-  `,
-
-  w4: `
-    <h2>Eco Community</h2>
-    <p><b>Interactive Educational Storytelling Experience</b></p>
-    <p>Workshops in Korea, Hong Kong, and the UK.</p>
-    <p>Focus on decision-making, sustainability, and narrative XR.</p>
-  `
-};
-
-let activeCard = null;
-
-function openWork(id, el) {
-  const panel = document.getElementById("work-detail");
-
-  // reset previous active
-  document.querySelectorAll(".work-card").forEach(c => {
-    c.classList.remove("active");
-  });
-
-  // set new active
-  el.classList.add("active");
-  activeCard = el;
-
-  // animate content swap
-  panel.classList.remove("show");
-
-  setTimeout(() => {
-    panel.innerHTML = data[id];
-    panel.classList.add("show");
-  }, 120);
-}
-</script>
 
 </body>
 </html>
