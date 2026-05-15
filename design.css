@@ -31,7 +31,6 @@
 
   --font-base: 18px;
   --font-sm: 15px;
-  --font-lg: 21px;
 }
 
 /* =========================
@@ -67,13 +66,13 @@ h2 {
 
 p {
   font-size: var(--font-base);
-  line-height: 1.45;
   color: var(--muted);
   margin-top: var(--s2);
+  line-height: 1.45;
 }
 
 /* =========================
-   NAVBAR
+   NAV
 ========================= */
 
 .nav {
@@ -89,7 +88,6 @@ p {
   width: auto;
   max-width: 240px;
   object-fit: contain;
-  display: block;
 }
 
 .links a {
@@ -109,90 +107,13 @@ p {
 }
 
 /* =========================
-   HERO
-========================= */
-
-.hero {
-  padding: 110px 48px;
-  max-width: 1040px;
-  margin: 0 auto;
-}
-
-.hero p {
-  margin-top: var(--s3);
-}
-
-/* =========================
-   BUTTONS
-========================= */
-
-.btn {
-  display: inline-block;
-  padding: 10px 16px;
-  border: 1px solid var(--text);
-  text-decoration: none;
-  color: var(--text);
-  font-size: var(--font-sm);
-  transition: 0.25s ease;
-  margin-right: var(--s2);
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-}
-
-.btn.primary {
-  background: var(--accent);
-  border: none;
-}
-
-/* =========================
-   SECTION
+   LAYOUT
 ========================= */
 
 .section {
   padding: 90px 48px;
   max-width: 1040px;
   margin: 0 auto;
-}
-
-.section h1 {
-  margin-bottom: var(--s5);
-}
-
-/* =========================
-   HERO IMAGE
-========================= */
-
-.hero-image {
-  margin: 42px 0;
-}
-
-.hero-image img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  display: block;
-}
-
-/* =========================
-   HERO CONTENT
-========================= */
-
-.hero-content {
-  max-width: 760px;
-}
-
-.hero-content p {
-  margin-bottom: 20px;
-}
-
-/* =========================
-   HERO BUTTONS
-========================= */
-
-.hero-buttons {
-  margin-top: 36px;
 }
 
 /* =========================
@@ -206,7 +127,7 @@ p {
 }
 
 /* =========================
-   WORK CARDS
+   WORK CARD
 ========================= */
 
 .work-card {
@@ -215,9 +136,7 @@ p {
   background: #fff;
   cursor: pointer;
 
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
-
-  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   will-change: transform;
 }
 
@@ -228,14 +147,14 @@ p {
 }
 
 .work-card h3 {
-  margin: 0;
   font-size: 18px;
+  margin: 0;
 }
 
 .work-card p {
-  margin-top: 6px;
   font-size: 14px;
   color: var(--muted);
+  margin-top: 6px;
 }
 
 /* ACTIVE STATE */
@@ -249,20 +168,19 @@ p {
 }
 
 /* =========================
-   DETAIL PANEL (ANIMATED)
+   DETAIL PANEL
 ========================= */
 
 .work-detail {
-  margin-top: 0;
   max-width: 760px;
 
+  margin-top: 0;
   padding: 0 18px;
 
   max-height: 0;
-  opacity: 0;
   overflow: hidden;
-
-  transform: translateY(-8px);
+  opacity: 0;
+  transform: translateY(-10px);
 
   border: 1px solid transparent;
 
@@ -271,11 +189,11 @@ p {
     opacity 0.35s ease,
     transform 0.35s ease,
     padding 0.35s ease,
-    margin 0.35s ease;
+    margin-top 0.35s ease;
 }
 
 .work-detail.show {
-  max-height: 700px;
+  max-height: 900px;
   opacity: 1;
   transform: translateY(0);
 
@@ -283,55 +201,5 @@ p {
   margin-top: 28px;
 
   border: 1px solid var(--border);
-  background: #fff;
-}
-
-.work-detail h2 {
-  margin-bottom: 10px;
-}
-.work-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 18px;
-}
-
-.work-card {
-  padding: 18px;
-  border: 1px solid #eaeaea;
-  background: #fff;
-  cursor: pointer;
-  transition: 0.25s ease;
-}
-
-.work-card:hover {
-  transform: translateY(-6px);
-  border-color: #ffc821;
-}
-
-.work-card.active {
-  background: #ffc821;
-}
-
-.work-card p {
-  font-size: 14px;
-  color: #555;
-}
-
-.work-detail {
-  margin-top: 0;
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateY(-8px);
-  transition: 0.4s ease;
-}
-
-.work-detail.show {
-  max-height: 900px;
-  opacity: 1;
-  transform: translateY(0);
-  margin-top: 24px;
-  padding: 24px;
-  border: 1px solid #eaeaea;
   background: #fff;
 }
