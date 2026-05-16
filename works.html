@@ -29,152 +29,156 @@
 
   <h1>Selected Works</h1>
 
-  <!-- WORK GRID -->
+  <!-- GRID BUTTONS -->
   <div class="work-grid">
 
-    <!-- CARD 1 -->
     <div class="work-card active" onclick="openWork('w1', this)">
-
       <h3>Weather Risk Simulation</h3>
-
-      <img class="work-thumb" src="assets/button1.png" alt="Weather Risk Simulation">
-
       <p>VR urban planning & climate communication</p>
-
     </div>
 
-    <!-- CARD 2 -->
     <div class="work-card" onclick="openWork('w2', this)">
-
-      <h3>Solar Panels VR Education</h3>
-
-      <img class="work-thumb" src="assets/button2.png" alt="Solar Panels VR">
-
+      <h3>Solar Panels VR</h3>
       <p>Educational XR for renewable energy learning</p>
-
     </div>
 
-    <!-- CARD 3 -->
     <div class="work-card" onclick="openWork('w3', this)">
-
-      <h3>Solar Panel Data Simulation</h3>
-
-      <img class="work-thumb" src="assets/button3.png" alt="Solar Data Simulation">
-
-      <p>Macro-scale renewable energy visualisation</p>
-
+      <h3>Solar Data Simulation</h3>
+      <p>Macro-scale energy visualisation</p>
     </div>
 
-    <!-- CARD 4 -->
     <div class="work-card" onclick="openWork('w4', this)">
-
       <h3>Eco Community</h3>
-
-      <img class="work-thumb" src="assets/button4.png" alt="Eco Community">
-
-      <p>Interactive educational storytelling experience</p>
-
+      <p>Interactive storytelling XR</p>
     </div>
 
   </div>
 
-  <!-- DETAIL PANEL -->
+  <!-- DETAIL AREA -->
   <div id="work-detail" class="work-detail show">
 
-    <h2>Weather Risk Simulation</h2>
+    <div class="work-layout">
 
-    <p><b>VR Urban Planning & Climate Communication</b></p>
+      <!-- LEFT TEXT (60%) -->
+      <div class="work-text">
 
-    <p>
-      Developed in collaboration with LIRIC and the University of the West of England, this immersive VR experience explored new ways of communicating urban planning and environmental risk to local communities.
-    </p>
+        <h2>Weather Risk Simulation</h2>
 
-    <p>
-      Primarily designed for the Igloo immersive projection system, the project simulated weather and climate risk differences under multiple urban planning scenarios across locations in Bristol, Taiwan, and São Paulo.
-    </p>
+        <p><b>VR Urban Planning & Climate Communication</b></p>
 
-    <p>
-      The experience aimed to prototype more accessible and engaging approaches to public consultation, spatial communication, and environmental awareness.
-    </p>
+        <p>
+          Developed in collaboration with LIRIC and the University of the West of England, this immersive VR experience explored new ways of communicating urban planning and environmental risk to local communities.
+        </p>
+
+        <p>
+          Primarily designed for the Igloo immersive system, the project simulated weather and climate risk differences across Bristol, Taiwan, and São Paulo.
+        </p>
+
+        <p>
+          The experience aimed to improve accessibility in public consultation and environmental awareness.
+        </p>
+
+      </div>
+
+      <!-- RIGHT MEDIA (40%) -->
+      <div class="work-media">
+
+        <img src="assets/button1_img1.jpg" alt="Work image">
+        <img src="assets/button1_img2.jpg" alt="Work image">
+
+      </div>
+
+    </div>
 
   </div>
 
 </div>
 
+<!-- SCRIPT -->
 <script>
 
 const data = {
 
   w1: `
-    <h2>Weather Risk Simulation</h2>
+    <div class="work-layout">
 
-    <p><b>VR Urban Planning & Climate Communication</b></p>
+      <div class="work-text">
+        <h2>Weather Risk Simulation</h2>
 
-    <p>
-      Developed in collaboration with LIRIC and the University of the West of England, this immersive VR experience explored new ways of communicating urban planning and environmental risk to local communities.
-    </p>
+        <p><b>VR Urban Planning & Climate Communication</b></p>
 
-    <p>
-      Primarily designed for the Igloo immersive projection system, the project simulated weather and climate risk differences under multiple urban planning scenarios across locations in Bristol, Taiwan, and São Paulo.
-    </p>
+        <p>Developed in collaboration with LIRIC and UWE.</p>
 
-    <p>
-      The experience aimed to prototype more accessible and engaging approaches to public consultation, spatial communication, and environmental awareness.
-    </p>
+        <p>Simulated weather risk across Bristol, Taiwan, São Paulo.</p>
+
+        <p>Focused on spatial communication and urban planning scenarios.</p>
+      </div>
+
+      <div class="work-media">
+        <img src="assets/button1_img1.jpg">
+        <img src="assets/button1_img2.jpg">
+      </div>
+
+    </div>
   `,
 
   w2: `
-    <h2>Solar Panels VR Education Experience</h2>
+    <div class="work-layout">
 
-    <p><b>Educational XR Game for Renewable Energy Learning</b></p>
+      <div class="work-text">
+        <h2>Solar Panels VR</h2>
 
-    <p>
-      Created in collaboration with Hong Kong Baptist University for workshops supported by the Hong Kong Education Bureau.
-    </p>
+        <p><b>Educational XR Game</b></p>
 
-    <p>
-      Players explored real-world environments in VR and learned how solar panels function, where they can be installed effectively, and how placement impacts performance.
-    </p>
+        <p>Built with HKBU for education workshops.</p>
 
-    <p>
-      Developed primarily for Meta Quest headsets for educational workshop environments.
-    </p>
+        <p>Teaching solar energy placement and efficiency.</p>
+
+      </div>
+
+      <div class="work-media">
+        <img src="assets/button2_img1.jpg">
+      </div>
+
+    </div>
   `,
 
   w3: `
-    <h2>Solar Panel Data Simulation</h2>
+    <div class="work-layout">
 
-    <p><b>Macro-Scale Renewable Energy Visualisation</b></p>
+      <div class="work-text">
+        <h2>Solar Data Simulation</h2>
 
-    <p>
-      Working alongside Hong Kong Baptist University, this project explored ways of visualising large-scale solar panel deployment through immersive simulation systems.
-    </p>
+        <p><b>Macro-scale Energy System Visualisation</b></p>
 
-    <p>
-      Rather than individual placement, the experience focused on macro-level environmental simulation and sustainability planning.
-    </p>
+        <p>Simulated solar coverage density across urban regions.</p>
 
-    <p>
-      Developed for Meta Quest and later adapted for Igloo immersive systems.
-    </p>
+      </div>
+
+      <div class="work-media">
+        <img src="assets/button3_img1.jpg">
+      </div>
+
+    </div>
   `,
 
   w4: `
-    <h2>Eco Community</h2>
+    <div class="work-layout">
 
-    <p><b>Interactive Educational Storytelling Experience</b></p>
+      <div class="work-text">
+        <h2>Eco Community</h2>
 
-    <p>
-      Developed with Hong Kong Baptist University for workshops and exhibitions across Korea, Hong Kong, and the United Kingdom.
-    </p>
+        <p><b>Interactive Storytelling XR</b></p>
 
-    <p>
-      Users experienced the perspectives and stories of residents within a fictional eco-community while making sustainability-focused decisions.
-    </p>
+        <p>Decision-based eco community simulation.</p>
 
-    <p>
-      Focused on empathy, participation, and educational engagement through immersive narrative design.
-    </p>
+      </div>
+
+      <div class="work-media">
+        <img src="assets/button4_img1.jpg">
+      </div>
+
+    </div>
   `
 };
 
@@ -182,8 +186,8 @@ function openWork(id, el) {
 
   const panel = document.getElementById("work-detail");
 
-  document.querySelectorAll(".work-card").forEach(card => {
-    card.classList.remove("active");
+  document.querySelectorAll(".work-card").forEach(c => {
+    c.classList.remove("active");
   });
 
   el.classList.add("active");
@@ -191,12 +195,9 @@ function openWork(id, el) {
   panel.classList.remove("show");
 
   setTimeout(() => {
-
     panel.innerHTML = data[id];
-
     panel.classList.add("show");
-
-  }, 150);
+  }, 120);
 }
 
 </script>
