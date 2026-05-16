@@ -1,206 +1,112 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Works</title>
-  <link rel="stylesheet" href="design.css"/>
-</head>
-
-<body>
-
-<!-- NAV -->
-<nav class="nav">
-
-  <div class="logo">
-    <img src="assets/logo.png" alt="Access XR Logo">
-  </div>
-
-  <div class="links">
-    <a href="index.html">Home</a>
-    <a class="active" href="works.html">Works</a>
-    <a href="contact.html">Contact</a>
-  </div>
-
-</nav>
-
-<!-- MAIN -->
-<div class="section">
-
-  <h1>Selected Works</h1>
-
-  <!-- GRID BUTTONS -->
-  <div class="work-grid">
-
-    <div class="work-card active" onclick="openWork('w1', this)">
-      <h3>Weather Risk Simulation</h3>
-      <p>VR urban planning & climate communication</p>
-    </div>
-
-    <div class="work-card" onclick="openWork('w2', this)">
-      <h3>Solar Panels VR</h3>
-      <p>Educational XR for renewable energy learning</p>
-    </div>
-
-    <div class="work-card" onclick="openWork('w3', this)">
-      <h3>Solar Data Simulation</h3>
-      <p>Macro-scale energy visualisation</p>
-    </div>
-
-    <div class="work-card" onclick="openWork('w4', this)">
-      <h3>Eco Community</h3>
-      <p>Interactive storytelling XR</p>
-    </div>
-
-  </div>
-
-  <!-- DETAIL AREA -->
-  <div id="work-detail" class="work-detail show">
-
-    <div class="work-layout">
-
-      <!-- LEFT TEXT (60%) -->
-      <div class="work-text">
-
-        <h2>Weather Risk Simulation</h2>
-
-        <p><b>VR Urban Planning & Climate Communication</b></p>
-
-        <p>
-          Developed in collaboration with LIRIC and the University of the West of England, this immersive VR experience explored new ways of communicating urban planning and environmental risk to local communities.
-        </p>
-
-        <p>
-          Primarily designed for the Igloo immersive system, the project simulated weather and climate risk differences across Bristol, Taiwan, and São Paulo.
-        </p>
-
-        <p>
-          The experience aimed to improve accessibility in public consultation and environmental awareness.
-        </p>
-
-      </div>
-
-      <!-- RIGHT MEDIA (40%) -->
-      <div class="work-media">
-
-        <img src="assets/button1_img1.jpg" alt="Work image">
-        <img src="assets/button1_img2.jpg" alt="Work image">
-
-      </div>
-
-    </div>
-
-  </div>
-
-</div>
-
-<!-- SCRIPT -->
 <script>
 
 const data = {
 
-  w1: `
-    <div class="work-layout">
+  w1: {
+    title: "Weather Risk Simulation",
+    subtitle: "VR Urban Planning & Climate Communication",
+    text: `
+      <p>Developed in collaboration with LIRIC and the University of the West of England.</p>
+      <p>Simulated weather and climate risk across urban planning scenarios in Bristol, Taiwan, and São Paulo.</p>
+      <p>Focus: public consultation, spatial communication, and environmental awareness.</p>
+    `,
+    images: [
+      "assets/button1_img1.png",
+      "assets/button1_img2.png"
+    ]
+  },
 
-      <div class="work-text">
-        <h2>Weather Risk Simulation</h2>
+  w2: {
+    title: "Solar Panels VR Education Experience",
+    subtitle: "Educational XR Game for Renewable Energy Learning",
+    text: `
+      <p>Created with Hong Kong Baptist University and HK Education Bureau workshops.</p>
+      <p>Introduced solar energy fundamentals, placement logic, and efficiency concepts.</p>
+      <p>Built primarily for Meta Quest headsets.</p>
+    `,
+    images: [
+      "assets/button2_img1.png"
+    ]
+  },
 
-        <p><b>VR Urban Planning & Climate Communication</b></p>
+  w3: {
+    title: "Solar Panel Data Simulation",
+    subtitle: "Macro-Scale Renewable Energy Visualisation",
+    text: `
+      <p>Simulated large-scale solar energy systems based on coverage density.</p>
+      <p>Focused on macro environmental modelling across urban regions like Bristol (Easton).</p>
+      <p>Developed for Meta Quest and Igloo immersive systems.</p>
+    `,
+    images: [
+      "assets/button3_img1.png"
+    ]
+  },
 
-        <p>Developed in collaboration with LIRIC and UWE.</p>
+  w4: {
+    title: "Eco Community",
+    subtitle: "Interactive Educational Storytelling Experience",
+    text: `
+      <p>Developed with Hong Kong Baptist University for workshops in Korea, Hong Kong, and the UK.</p>
+      <p>Users experience a fictional eco-community and make decisions affecting sustainability outcomes.</p>
+      <p>Focus: empathy, narrative systems, participatory learning.</p>
+    `,
+    images: [
+      "assets/button4_img1.png"
+    ]
+  }
 
-        <p>Simulated weather risk across Bristol, Taiwan, São Paulo.</p>
-
-        <p>Focused on spatial communication and urban planning scenarios.</p>
-      </div>
-
-      <div class="work-media">
-        <img src="assets/button1_img1.jpg">
-        <img src="assets/button1_img2.jpg">
-      </div>
-
-    </div>
-  `,
-
-  w2: `
-    <div class="work-layout">
-
-      <div class="work-text">
-        <h2>Solar Panels VR</h2>
-
-        <p><b>Educational XR Game</b></p>
-
-        <p>Built with HKBU for education workshops.</p>
-
-        <p>Teaching solar energy placement and efficiency.</p>
-
-      </div>
-
-      <div class="work-media">
-        <img src="assets/button2_img1.jpg">
-      </div>
-
-    </div>
-  `,
-
-  w3: `
-    <div class="work-layout">
-
-      <div class="work-text">
-        <h2>Solar Data Simulation</h2>
-
-        <p><b>Macro-scale Energy System Visualisation</b></p>
-
-        <p>Simulated solar coverage density across urban regions.</p>
-
-      </div>
-
-      <div class="work-media">
-        <img src="assets/button3_img1.jpg">
-      </div>
-
-    </div>
-  `,
-
-  w4: `
-    <div class="work-layout">
-
-      <div class="work-text">
-        <h2>Eco Community</h2>
-
-        <p><b>Interactive Storytelling XR</b></p>
-
-        <p>Decision-based eco community simulation.</p>
-
-      </div>
-
-      <div class="work-media">
-        <img src="assets/button4_img1.jpg">
-      </div>
-
-    </div>
-  `
 };
 
 function openWork(id, el) {
 
   const panel = document.getElementById("work-detail");
 
+  // clear active state
   document.querySelectorAll(".work-card").forEach(c => {
     c.classList.remove("active");
   });
 
   el.classList.add("active");
 
+  const item = data[id];
+
+  if (!item) return;
+
+  // build images safely (handles ANY number of images)
+  const imagesHTML = (item.images || [])
+    .map(src => `
+      <img src="${src}" alt="${item.title} image"
+           onerror="this.style.display='none'">
+    `)
+    .join("");
+
+  // animate out
   panel.classList.remove("show");
 
   setTimeout(() => {
-    panel.innerHTML = data[id];
+
+    panel.innerHTML = `
+      <div class="work-layout">
+
+        <!-- TEXT (60%) -->
+        <div class="work-text">
+          <h2>${item.title}</h2>
+          <p><b>${item.subtitle}</b></p>
+          ${item.text}
+        </div>
+
+        <!-- MEDIA (40%) -->
+        <div class="work-media">
+          ${imagesHTML}
+        </div>
+
+      </div>
+    `;
+
     panel.classList.add("show");
+
   }, 120);
+
 }
 
 </script>
-
-</body>
-</html>
