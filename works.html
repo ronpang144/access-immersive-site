@@ -1,14 +1,16 @@
 <script>
 
+document.addEventListener("DOMContentLoaded", () => {
+
 const data = {
 
   w1: {
     title: "Weather Risk Simulation",
     subtitle: "VR Urban Planning & Climate Communication",
     text: `
-      <p>Developed in collaboration with LIRIC and the University of the West of England.</p>
-      <p>Simulated weather and climate risk across urban planning scenarios in Bristol, Taiwan, and São Paulo.</p>
-      <p>Focus: public consultation, spatial communication, and environmental awareness.</p>
+      <p>Developed in collaboration with LIRIC and UWE.</p>
+      <p>Simulated climate risk across Bristol, Taiwan, São Paulo.</p>
+      <p>Focus: spatial communication and planning systems.</p>
     `,
     images: [
       "assets/button1_img1.png",
@@ -17,12 +19,11 @@ const data = {
   },
 
   w2: {
-    title: "Solar Panels VR Education Experience",
-    subtitle: "Educational XR Game for Renewable Energy Learning",
+    title: "Solar Panels VR",
+    subtitle: "Educational XR Game",
     text: `
-      <p>Created with Hong Kong Baptist University and HK Education Bureau workshops.</p>
-      <p>Introduced solar energy fundamentals, placement logic, and efficiency concepts.</p>
-      <p>Built primarily for Meta Quest headsets.</p>
+      <p>Built with HKBU for education workshops.</p>
+      <p>Teaching solar energy systems and placement logic.</p>
     `,
     images: [
       "assets/button2_img1.png"
@@ -30,12 +31,11 @@ const data = {
   },
 
   w3: {
-    title: "Solar Panel Data Simulation",
-    subtitle: "Macro-Scale Renewable Energy Visualisation",
+    title: "Solar Data Simulation",
+    subtitle: "Macro-scale Energy Visualisation",
     text: `
-      <p>Simulated large-scale solar energy systems based on coverage density.</p>
-      <p>Focused on macro environmental modelling across urban regions like Bristol (Easton).</p>
-      <p>Developed for Meta Quest and Igloo immersive systems.</p>
+      <p>Simulated solar coverage density at urban scale.</p>
+      <p>Focus: system-level environmental modelling.</p>
     `,
     images: [
       "assets/button3_img1.png"
@@ -44,11 +44,10 @@ const data = {
 
   w4: {
     title: "Eco Community",
-    subtitle: "Interactive Educational Storytelling Experience",
+    subtitle: "Interactive Storytelling XR",
     text: `
-      <p>Developed with Hong Kong Baptist University for workshops in Korea, Hong Kong, and the UK.</p>
-      <p>Users experience a fictional eco-community and make decisions affecting sustainability outcomes.</p>
-      <p>Focus: empathy, narrative systems, participatory learning.</p>
+      <p>Decision-based eco-community simulation.</p>
+      <p>Focus: empathy, narrative systems, sustainability.</p>
     `,
     images: [
       "assets/button4_img1.png"
@@ -57,30 +56,32 @@ const data = {
 
 };
 
-function openWork(id, el) {
+const panel = document.getElementById("work-detail");
 
-  const panel = document.getElementById("work-detail");
+if (!panel) {
+  console.error("Missing #work-detail in HTML");
+  return;
+}
 
-  // clear active state
+// render function
+function renderWork(id, el) {
+
+  const item = data[id];
+  if (!item) return;
+
   document.querySelectorAll(".work-card").forEach(c => {
     c.classList.remove("active");
   });
 
   el.classList.add("active");
 
-  const item = data[id];
-
-  if (!item) return;
-
-  // build images safely (handles ANY number of images)
   const imagesHTML = (item.images || [])
     .map(src => `
-      <img src="${src}" alt="${item.title} image"
+      <img src="${src}" alt="${item.title}"
            onerror="this.style.display='none'">
     `)
     .join("");
 
-  // animate out
   panel.classList.remove("show");
 
   setTimeout(() => {
@@ -88,14 +89,12 @@ function openWork(id, el) {
     panel.innerHTML = `
       <div class="work-layout">
 
-        <!-- TEXT (60%) -->
         <div class="work-text">
           <h2>${item.title}</h2>
           <p><b>${item.subtitle}</b></p>
           ${item.text}
         </div>
 
-        <!-- MEDIA (40%) -->
         <div class="work-media">
           ${imagesHTML}
         </div>
@@ -108,5 +107,16 @@ function openWork(id, el) {
   }, 120);
 
 }
+
+// expose globally for onclick
+window.openWork = renderWork;
+
+// auto open first item (prevents blank page feeling)
+const firstCard = document.querySelector(".work-card");
+if (firstCard) {
+  renderWork("w1", firstCard);
+}
+
+});
 
 </script>
