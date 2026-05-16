@@ -1,6 +1,63 @@
-<script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Works</title>
+  <link rel="stylesheet" href="design.css"/>
+</head>
 
-document.addEventListener("DOMContentLoaded", () => {
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="logo">
+    <img src="assets/logo.png" alt="logo">
+  </div>
+
+  <div class="links">
+    <a href="index.html">Home</a>
+    <a class="active" href="works.html">Works</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<div class="section">
+
+  <h1>Selected Works</h1>
+
+  <!-- GRID -->
+  <div class="work-grid">
+
+    <div class="work-card" onclick="openWork('w1', this)">
+      <h3>Weather Risk Simulation</h3>
+      <p>VR Urban Planning & Climate Communication</p>
+    </div>
+
+    <div class="work-card" onclick="openWork('w2', this)">
+      <h3>Solar Panels VR Education Experience</h3>
+      <p>Educational XR Game for Renewable Energy Learning</p>
+    </div>
+
+    <div class="work-card" onclick="openWork('w3', this)">
+      <h3>Solar Panel Data Simulation</h3>
+      <p>Macro-Scale Renewable Energy Visualisation</p>
+    </div>
+
+    <div class="work-card" onclick="openWork('w4', this)">
+      <h3>Eco Community</h3>
+      <p>Interactive Educational Storytelling Experience</p>
+    </div>
+
+  </div>
+
+  <!-- DETAIL PANEL (CRITICAL - DO NOT REMOVE) -->
+  <div id="work-detail" class="work-detail"></div>
+
+</div>
+
+<script>
 
 const data = {
 
@@ -8,9 +65,9 @@ const data = {
     title: "Weather Risk Simulation",
     subtitle: "VR Urban Planning & Climate Communication",
     text: `
-      <p>Developed in collaboration with LIRIC and UWE.</p>
-      <p>Simulated climate risk across Bristol, Taiwan, São Paulo.</p>
-      <p>Focus: spatial communication and planning systems.</p>
+      <p>Developed in collaboration with LIRIC and the University of the West of England, this immersive VR experience explored new ways of communicating urban planning and environmental risk to local communities.</p>
+      <p>Primarily designed for the Igloo immersive projection system, the project simulated weather and climate risk differences under multiple urban planning scenarios across locations in Bristol, Taiwan, and São Paulo.</p>
+      <p>The experience aimed to prototype more accessible and engaging approaches to public consultation, spatial communication, and environmental awareness.</p>
     `,
     images: [
       "assets/button1_img1.png",
@@ -19,11 +76,13 @@ const data = {
   },
 
   w2: {
-    title: "Solar Panels VR",
-    subtitle: "Educational XR Game",
+    title: "Solar Panels VR Education Experience",
+    subtitle: "Educational XR Game for Renewable Energy Learning",
     text: `
-      <p>Built with HKBU for education workshops.</p>
-      <p>Teaching solar energy systems and placement logic.</p>
+      <p>Created in collaboration with Hong Kong Baptist University for workshops supported by the Hong Kong Education Bureau.</p>
+      <p>This VR educational experience introduced students to the fundamentals of solar energy and sustainable infrastructure.</p>
+      <p>Players explored real-world environments in VR and learned how solar panels function, where they can be installed effectively, and how placement impacts performance.</p>
+      <p>Built primarily for Meta Quest headsets.</p>
     `,
     images: [
       "assets/button2_img1.png"
@@ -31,11 +90,12 @@ const data = {
   },
 
   w3: {
-    title: "Solar Data Simulation",
-    subtitle: "Macro-scale Energy Visualisation",
+    title: "Solar Panel Data Simulation",
+    subtitle: "Macro-Scale Renewable Energy Visualisation",
     text: `
-      <p>Simulated solar coverage density at urban scale.</p>
-      <p>Focus: system-level environmental modelling.</p>
+      <p>Working alongside Hong Kong Baptist University, this project explored large-scale solar panel deployment through immersive simulation systems.</p>
+      <p>Rather than individual placement, the experience focused on macro-level environmental simulation across urban regions like Easton, Bristol.</p>
+      <p>Developed for Meta Quest and later adapted for Igloo immersive systems.</p>
     `,
     images: [
       "assets/button3_img1.png"
@@ -44,10 +104,11 @@ const data = {
 
   w4: {
     title: "Eco Community",
-    subtitle: "Interactive Storytelling XR",
+    subtitle: "Interactive Educational Storytelling Experience",
     text: `
-      <p>Decision-based eco-community simulation.</p>
-      <p>Focus: empathy, narrative systems, sustainability.</p>
+      <p>Developed with Hong Kong Baptist University for workshops across Korea, Hong Kong, and the United Kingdom.</p>
+      <p>This experience places users inside a fictional eco-community where they make decisions affecting sustainability and development outcomes.</p>
+      <p>The project focuses on empathy, participation, and educational narrative design.</p>
     `,
     images: [
       "assets/button4_img1.png"
@@ -56,18 +117,14 @@ const data = {
 
 };
 
-const panel = document.getElementById("work-detail");
+function openWork(id, el) {
 
-if (!panel) {
-  console.error("Missing #work-detail in HTML");
-  return;
-}
+  const panel = document.getElementById("work-detail");
 
-// render function
-function renderWork(id, el) {
-
-  const item = data[id];
-  if (!item) return;
+  if (!panel) {
+    console.error("Missing #work-detail");
+    return;
+  }
 
   document.querySelectorAll(".work-card").forEach(c => {
     c.classList.remove("active");
@@ -75,11 +132,12 @@ function renderWork(id, el) {
 
   el.classList.add("active");
 
+  const item = data[id];
+
+  if (!item) return;
+
   const imagesHTML = (item.images || [])
-    .map(src => `
-      <img src="${src}" alt="${item.title}"
-           onerror="this.style.display='none'">
-    `)
+    .map(src => `<img src="${src}" style="width:100%; border-radius:6px; margin-bottom:10px;">`)
     .join("");
 
   panel.classList.remove("show");
@@ -89,13 +147,15 @@ function renderWork(id, el) {
     panel.innerHTML = `
       <div class="work-layout">
 
-        <div class="work-text">
+        <!-- TEXT (60%) -->
+        <div class="work-text" style="flex: 0.6; padding-right: 20px;">
           <h2>${item.title}</h2>
           <p><b>${item.subtitle}</b></p>
           ${item.text}
         </div>
 
-        <div class="work-media">
+        <!-- MEDIA (40%) -->
+        <div class="work-media" style="flex: 0.4;">
           ${imagesHTML}
         </div>
 
@@ -108,15 +168,7 @@ function renderWork(id, el) {
 
 }
 
-// expose globally for onclick
-window.openWork = renderWork;
-
-// auto open first item (prevents blank page feeling)
-const firstCard = document.querySelector(".work-card");
-if (firstCard) {
-  renderWork("w1", firstCard);
-}
-
-});
-
 </script>
+
+</body>
+</html>
