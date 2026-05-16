@@ -5,6 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Works</title>
   <link rel="stylesheet" href="design.css"/>
+
+  <style>
+    /* card image */
+    .work-card img{
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-top: 10px;
+      display: block;
+    }
+
+    /* layout fix for detail */
+    .work-layout{
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    .work-media img{
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      display: block;
+    }
+  </style>
 </head>
 
 <body>
@@ -33,26 +59,30 @@
     <div class="work-card" onclick="openWork('w1', this)">
       <h3>Weather Risk Simulation</h3>
       <p>VR Urban Planning & Climate Communication</p>
+      <img src="assets/button1_img1.png">
     </div>
 
     <div class="work-card" onclick="openWork('w2', this)">
-      <h3>Solar Panels VR Education Experience</h3>
-      <p>Educational XR Game for Renewable Energy Learning</p>
+      <h3>Solar Panels VR</h3>
+      <p>Educational XR for Renewable Energy Learning</p>
+      <img src="assets/button2_img1.png">
     </div>
 
     <div class="work-card" onclick="openWork('w3', this)">
-      <h3>Solar Panel Data Simulation</h3>
-      <p>Macro-Scale Renewable Energy Visualisation</p>
+      <h3>Solar Data Simulation</h3>
+      <p>Macro-scale energy system visualisation</p>
+      <img src="assets/button3_img1.png">
     </div>
 
     <div class="work-card" onclick="openWork('w4', this)">
       <h3>Eco Community</h3>
-      <p>Interactive Educational Storytelling Experience</p>
+      <p>Interactive Educational Storytelling XR</p>
+      <img src="assets/button4_img1.png">
     </div>
 
   </div>
 
-  <!-- DETAIL PANEL (CRITICAL - DO NOT REMOVE) -->
+  <!-- DETAIL PANEL -->
   <div id="work-detail" class="work-detail"></div>
 
 </div>
@@ -65,9 +95,8 @@ const data = {
     title: "Weather Risk Simulation",
     subtitle: "VR Urban Planning & Climate Communication",
     text: `
-      <p>Developed in collaboration with LIRIC and the University of the West of England, this immersive VR experience explored new ways of communicating urban planning and environmental risk to local communities.</p>
-      <p>Primarily designed for the Igloo immersive projection system, the project simulated weather and climate risk differences under multiple urban planning scenarios across locations in Bristol, Taiwan, and São Paulo.</p>
-      <p>The experience aimed to prototype more accessible and engaging approaches to public consultation, spatial communication, and environmental awareness.</p>
+      <p>Developed with LIRIC and University of the West of England.</p>
+      <p>Simulated weather and climate risk across Bristol, Taiwan, and São Paulo.</p>
     `,
     images: [
       "assets/button1_img1.png",
@@ -76,13 +105,11 @@ const data = {
   },
 
   w2: {
-    title: "Solar Panels VR Education Experience",
-    subtitle: "Educational XR Game for Renewable Energy Learning",
+    title: "Solar Panels VR",
+    subtitle: "Educational XR Game",
     text: `
-      <p>Created in collaboration with Hong Kong Baptist University for workshops supported by the Hong Kong Education Bureau.</p>
-      <p>This VR educational experience introduced students to the fundamentals of solar energy and sustainable infrastructure.</p>
-      <p>Players explored real-world environments in VR and learned how solar panels function, where they can be installed effectively, and how placement impacts performance.</p>
-      <p>Built primarily for Meta Quest headsets.</p>
+      <p>Created with HKBU and HK Education Bureau workshops.</p>
+      <p>Built for Meta Quest headsets.</p>
     `,
     images: [
       "assets/button2_img1.png"
@@ -90,12 +117,10 @@ const data = {
   },
 
   w3: {
-    title: "Solar Panel Data Simulation",
-    subtitle: "Macro-Scale Renewable Energy Visualisation",
+    title: "Solar Data Simulation",
+    subtitle: "Macro-scale visualisation",
     text: `
-      <p>Working alongside Hong Kong Baptist University, this project explored large-scale solar panel deployment through immersive simulation systems.</p>
-      <p>Rather than individual placement, the experience focused on macro-level environmental simulation across urban regions like Easton, Bristol.</p>
-      <p>Developed for Meta Quest and later adapted for Igloo immersive systems.</p>
+      <p>Simulated large-scale solar energy systems based on coverage density.</p>
     `,
     images: [
       "assets/button3_img1.png"
@@ -104,11 +129,9 @@ const data = {
 
   w4: {
     title: "Eco Community",
-    subtitle: "Interactive Educational Storytelling Experience",
+    subtitle: "Interactive Storytelling",
     text: `
-      <p>Developed with Hong Kong Baptist University for workshops across Korea, Hong Kong, and the United Kingdom.</p>
-      <p>This experience places users inside a fictional eco-community where they make decisions affecting sustainability and development outcomes.</p>
-      <p>The project focuses on empathy, participation, and educational narrative design.</p>
+      <p>Decision-based eco-community simulation across HK, Korea, UK.</p>
     `,
     images: [
       "assets/button4_img1.png"
@@ -121,11 +144,6 @@ function openWork(id, el) {
 
   const panel = document.getElementById("work-detail");
 
-  if (!panel) {
-    console.error("Missing #work-detail");
-    return;
-  }
-
   document.querySelectorAll(".work-card").forEach(c => {
     c.classList.remove("active");
   });
@@ -134,10 +152,8 @@ function openWork(id, el) {
 
   const item = data[id];
 
-  if (!item) return;
-
   const imagesHTML = (item.images || [])
-    .map(src => `<img src="${src}" style="width:100%; border-radius:6px; margin-bottom:10px;">`)
+    .map(src => `<img src="${src}">`)
     .join("");
 
   panel.classList.remove("show");
@@ -147,15 +163,13 @@ function openWork(id, el) {
     panel.innerHTML = `
       <div class="work-layout">
 
-        <!-- TEXT (60%) -->
-        <div class="work-text" style="flex: 0.6; padding-right: 20px;">
+        <div class="work-text" style="flex:0.6">
           <h2>${item.title}</h2>
           <p><b>${item.subtitle}</b></p>
           ${item.text}
         </div>
 
-        <!-- MEDIA (40%) -->
-        <div class="work-media" style="flex: 0.4;">
+        <div class="work-media" style="flex:0.4">
           ${imagesHTML}
         </div>
 
