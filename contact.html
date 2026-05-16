@@ -5,10 +5,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact</title>
   <link rel="stylesheet" href="design.css"/>
+
+  <style>
+    .contact-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .contact-title {
+      font-size: 42px;
+      margin-bottom: 12px;
+    }
+
+    .contact-sub {
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 40px;
+      max-width: 620px;
+    }
+
+    .email-btn {
+      display: inline-block;
+      padding: 14px 18px;
+      background: #ffc821;
+      color: #111;
+      text-decoration: none;
+      font-weight: 600;
+      border: none;
+      transition: 0.2s ease;
+    }
+
+    .email-btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    .hint {
+      margin-top: 18px;
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
 </head>
 
 <body>
 
+<!-- NAV -->
 <nav class="nav">
   <div class="logo">
     <img src="assets/logo.png" alt="logo">
@@ -21,12 +64,27 @@
   </div>
 </nav>
 
-<div class="section">
-  <h1>Contact</h1>
+<!-- CONTENT -->
+<div class="section contact-wrap">
 
-  <p>Email: your@email.com</p>
-  <p>LinkedIn: /yourprofile</p>
-  <p>GitHub: /yourrepo</p>
+  <div class="contact-title">
+    Tell me what experience you want to create
+  </div>
+
+  <div class="contact-sub">
+    I design and develop immersive XR experiences for training, education, simulation, and interactive storytelling.  
+    If you have an idea or project in mind, feel free to reach out and we can discuss it directly.
+  </div>
+
+  <!-- EMAIL BUTTON -->
+  <a class="email-btn" href="mailto:ronpang144@gmail.com">
+    Email me
+  </a>
+
+  <div class="hint">
+    Clicking this will open your default email app.
+  </div>
+
 </div>
 
 </body>
