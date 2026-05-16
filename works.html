@@ -8,27 +8,36 @@
 
   <style>
     /* card image */
-    .work-card img{
+    .work-thumb {
       width: 100%;
       aspect-ratio: 4 / 3;
       object-fit: cover;
       border-radius: 6px;
-      margin-top: 10px;
+      margin-top: 12px;
       display: block;
+      background: #f2f2f2;
     }
 
-    /* layout fix for detail */
-    .work-layout{
+    .work-layout {
       display: flex;
       gap: 24px;
-      align-items: flex-start;
     }
 
-    .work-media img{
+    .work-text {
+      flex: 0.6;
+    }
+
+    .work-media {
+      flex: 0.4;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .work-media img {
       width: 100%;
       border-radius: 6px;
-      margin-bottom: 10px;
-      display: block;
+      object-fit: cover;
     }
   </style>
 </head>
@@ -59,30 +68,30 @@
     <div class="work-card" onclick="openWork('w1', this)">
       <h3>Weather Risk Simulation</h3>
       <p>VR Urban Planning & Climate Communication</p>
-      <img src="assets/button1_img1.png">
+      <img class="work-thumb" src="assets/button1.png" alt="">
     </div>
 
     <div class="work-card" onclick="openWork('w2', this)">
       <h3>Solar Panels VR</h3>
       <p>Educational XR for Renewable Energy Learning</p>
-      <img src="assets/button2_img1.png">
+      <img class="work-thumb" src="assets/button2.png" alt="">
     </div>
 
     <div class="work-card" onclick="openWork('w3', this)">
       <h3>Solar Data Simulation</h3>
       <p>Macro-scale energy system visualisation</p>
-      <img src="assets/button3_img1.png">
+      <img class="work-thumb" src="assets/button3.png" alt="">
     </div>
 
     <div class="work-card" onclick="openWork('w4', this)">
       <h3>Eco Community</h3>
-      <p>Interactive Educational Storytelling XR</p>
-      <img src="assets/button4_img1.png">
+      <p>Interactive educational storytelling XR</p>
+      <img class="work-thumb" src="assets/button4.png" alt="">
     </div>
 
   </div>
 
-  <!-- DETAIL PANEL -->
+  <!-- DETAIL -->
   <div id="work-detail" class="work-detail"></div>
 
 </div>
@@ -95,8 +104,9 @@ const data = {
     title: "Weather Risk Simulation",
     subtitle: "VR Urban Planning & Climate Communication",
     text: `
-      <p>Developed with LIRIC and University of the West of England.</p>
+      <p>Developed in collaboration with LIRIC and the University of the West of England.</p>
       <p>Simulated weather and climate risk across Bristol, Taiwan, and São Paulo.</p>
+      <p>Focus: urban planning communication and environmental awareness.</p>
     `,
     images: [
       "assets/button1_img1.png",
@@ -105,11 +115,12 @@ const data = {
   },
 
   w2: {
-    title: "Solar Panels VR",
+    title: "Solar Panels VR Education Experience",
     subtitle: "Educational XR Game",
     text: `
-      <p>Created with HKBU and HK Education Bureau workshops.</p>
-      <p>Built for Meta Quest headsets.</p>
+      <p>Created with Hong Kong Baptist University.</p>
+      <p>Teaches solar energy fundamentals in VR.</p>
+      <p>Built for Meta Quest.</p>
     `,
     images: [
       "assets/button2_img1.png"
@@ -117,10 +128,12 @@ const data = {
   },
 
   w3: {
-    title: "Solar Data Simulation",
-    subtitle: "Macro-scale visualisation",
+    title: "Solar Panel Data Simulation",
+    subtitle: "Macro-Scale Energy Visualisation",
     text: `
-      <p>Simulated large-scale solar energy systems based on coverage density.</p>
+      <p>Simulates large-scale solar coverage systems.</p>
+      <p>Focus on macro planning rather than individual placement.</p>
+      <p>Built for Quest + Igloo systems.</p>
     `,
     images: [
       "assets/button3_img1.png"
@@ -129,9 +142,10 @@ const data = {
 
   w4: {
     title: "Eco Community",
-    subtitle: "Interactive Storytelling",
+    subtitle: "Interactive Storytelling XR",
     text: `
-      <p>Decision-based eco-community simulation across HK, Korea, UK.</p>
+      <p>Educational narrative experience across UK, HK, Korea.</p>
+      <p>Users make decisions affecting a fictional eco-community.</p>
     `,
     images: [
       "assets/button4_img1.png"
@@ -153,31 +167,28 @@ function openWork(id, el) {
   const item = data[id];
 
   const imagesHTML = (item.images || [])
-    .map(src => `<img src="${src}">`)
+    .map(src => `<img src="${src}" alt="">`)
     .join("");
 
   panel.classList.remove("show");
 
   setTimeout(() => {
-
     panel.innerHTML = `
       <div class="work-layout">
 
-        <div class="work-text" style="flex:0.6">
+        <div class="work-text">
           <h2>${item.title}</h2>
           <p><b>${item.subtitle}</b></p>
           ${item.text}
         </div>
 
-        <div class="work-media" style="flex:0.4">
+        <div class="work-media">
           ${imagesHTML}
         </div>
 
       </div>
     `;
-
     panel.classList.add("show");
-
   }, 120);
 
 }
